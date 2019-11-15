@@ -93,7 +93,13 @@ app.post('/diners/:id/edit', (req, res) => {
 })
 //  do delete one action
 app.post('/diners/:id/delete', (req, res) => {
-  res.send('delete one diner')
+  Diner.findById(req.params.id, (err, diner) => {
+    if (err) return console.error(err)
+    diner.remove(err => {
+      if (err) return console.error(err)
+      return res.redirect('/')
+    })
+  })
 })
 
 //  search?

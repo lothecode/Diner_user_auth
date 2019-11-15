@@ -1,0 +1,77 @@
+<form action="/diners/{{{diner.id}}}/edit" method="POST">
+  <h2>修改餐廳資料</h2>
+  <div class="form-group col-10 row">
+    <label for="name" class="col-sm-2 col-form-label">餐廳名稱</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="name=" name="name" placeholder="餐廳名稱" value="{{{diner.name}}}">
+    </div>
+  </div>
+
+  <div class="form-group col-10 row">
+    <label for="name_en" class="col-sm-2 col-form-label">餐廳英文名稱</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="name_en" name="name_en" placeholder="餐廳英文名稱"
+        value="{{{diner.name_en}}}">
+    </div>
+  </div>
+
+  <div class="form-group col-10 row">
+    <label for="category" class="col-sm-2 col-form-label">Category</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="category" name="category" placeholder="category"
+        value="{{{diner.category}}}">
+    </div>
+  </div>
+
+  <div class="form-group col-10 row">
+    <label for="image" class="col-sm-2 col-form-label">照片連結 URL</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="image" name="image" placeholder="照片連結 URL" value="{{{diner.image}}}">
+    </div>
+  </div>
+
+  <div class="form-group col-10 row">
+    <label for="location" class="col-sm-2 col-form-label">地址</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="location" name="location" placeholder="地址"
+        value="{{{diner.location}}}">
+    </div>
+  </div>
+
+  <div class="form-group col-10 row">
+    <label for="phone" class="col-sm-2 col-form-label">電話</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="phone" name="phone" placeholder="電話" value="{{{diner.phone}}}">
+    </div>
+  </div>
+
+  <div class="form-group col-10 row">
+    <label for="google_map" class="col-sm-2 col-form-label">google_map</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="google_map" name="google_map" placeholder="google_map"
+        value="{{{diner.google_map}}}">
+    </div>
+  </div>
+
+  <div class="form-group col-10 row">
+    <label for="rating" class="col-sm-2 col-form-label">Rating</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="rating" name="rating" placeholder="Rating" value="{{{diner.rating}}}">
+    </div>
+  </div>
+
+  <div class="form-group col-10 row">
+    <label for="description" class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" id="description" name="description" placeholder="Description" rows="3"></textarea>
+    </div>
+  </div>
+
+  <div class=" form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-success">Edit</button>
+    </div>
+  </div>
+</form>
+
+</form>

@@ -67,11 +67,29 @@ app.get('/diners/:id', (req, res) => {
 })
 //  enter edit page
 app.get('/diners/:id/edit', (req, res) => {
-  res.send('edit one page')
+  Diner.findById(req.params.id, (err, diner) => {
+    if (err) return console.error(err)
+    return res.render('edit', { diner: diner })
+  })
 })
 //  do edit one action
 app.post('/diners/:id/edit', (req, res) => {
-  res.send('edit one action')
+  Diner.findById(req.params.id, (err, diner) => {
+    if (err) return console.error(err)
+    diner.name = req.body.name
+    diner.name_en = req.body.name_en
+    diner.category = req.body.category
+    diner.image = req.body.image
+    diner.location = req.body.location
+    diner.phone = req.body.phone
+    diner.google_map = req.body.google_map
+    diner.rating = req.body.rating
+    diner.description = req.body.description
+    diner.save(err => {
+      if (err) return console.error(err)
+      return res.redirect(`/diners/${req.params.id}`)
+    })
+  })
 })
 //  do delete one action
 app.post('/diners/:id/delete', (req, res) => {

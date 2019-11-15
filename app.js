@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 const mongoose = require('mongoose')
+const exphbs = require('express-handlebars')
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
 
 mongoose.connect('mongodb://localhost/DinerList', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
@@ -20,7 +23,7 @@ const Diner = require('./models/diner')
 //  Routes
 //  Home
 app.get('/', (req, res) => {
-  res.send('list all Diners, home')
+  return res.render('index')
 })
 //  list all
 app.get('/diners', (req, res) => {

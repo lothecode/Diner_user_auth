@@ -23,11 +23,14 @@ const Diner = require('./models/diner')
 //  Routes
 //  Home
 app.get('/', (req, res) => {
-  return res.render('index')
+  Diner.find((err, diners) => {
+    if (err) return console.error(err)
+    return res.render('index', { diners: diners })
+  })
 })
 //  list all
 app.get('/diners', (req, res) => {
-  res.send('list all Diners')
+  return res.redirect('/')
 })
 //  list one detail
 app.get('/diners/:id', (req, res) => {

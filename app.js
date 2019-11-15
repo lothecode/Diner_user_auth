@@ -3,6 +3,9 @@ const app = express()
 const port = 3000
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({ extended: true }))
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
@@ -32,17 +35,32 @@ app.get('/', (req, res) => {
 app.get('/diners', (req, res) => {
   return res.redirect('/')
 })
-//  list one detail
-app.get('/diners/:id', (req, res) => {
-  res.send('list one diner detail')
-})
 //  enter add new one page
 app.get('/diners/new', (req, res) => {
-  res.send('add new one page')
+  return res.render('new')
 })
 //  do add new one action
 app.post('/diners', (req, res) => {
-  res.send('add new one action')
+  const diner = new Diner({
+    name: req.body.name,
+    name_en: req.body.name_en,
+    category: req.body.category,
+    image: req.body.image,
+    location: req.body.location,
+    phone: req.body.phone,
+    google_map: req.body.google_map,
+    rating: req.body.rating,
+    description: req.body.description,
+  })
+  diner.save(err => {
+    if (err) return console.error(err)
+    console.log('done add')
+    return res.redirect('/')
+  })
+})
+//  list one detail
+app.get('/diners/:id', (req, res) => {
+  res.send('list one diner detail')
 })
 //  enter edit page
 app.get('/diners/:id/edit', (req, res) => {
@@ -56,6 +74,9 @@ app.post('/diners/:id/edit', (req, res) => {
 app.post('/diners/:id/delete', (req, res) => {
   res.send('delete one diner')
 })
+
+//  search?
+
 
 app.listen(port, () => {
   console.log('app is running')

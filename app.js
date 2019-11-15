@@ -60,7 +60,10 @@ app.post('/diners', (req, res) => {
 })
 //  list one detail
 app.get('/diners/:id', (req, res) => {
-  res.send('list one diner detail')
+  Diner.findById(req.params.id, (err, diner) => {
+    if (err) return console.error(err)
+    return res.render('show', { diner: diner })
+  })
 })
 //  enter edit page
 app.get('/diners/:id/edit', (req, res) => {

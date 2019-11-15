@@ -25,7 +25,7 @@
   {{#each diners}}
   <div class="col-sm-3 col-sm-4 mb-2">
     <div class="card h-100">
-      <a href="/diner/{{this.id}}" class="text-secondary">
+      <a href="/diners/{{this.id}}" class="text-secondary">
         <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
         <div class="card-body p-3">
           <h6 class="card-title mb-1">{{this.name}}</h6>
@@ -41,8 +41,8 @@
 
       {{!-- edit detail delete --}}
       <div class="card-footer bg-transparent text-right">
-        <a href="#" class="btn btn-link btn-sm">Edit</a>
-        <a href="#" class="btn btn-link btn-sm">Detail</a>
+        <a href="#" class="btn btn-light btn-link btn-sm">Edit</a>
+        <a href="/diners/{{this.id}}" class="btn btn-light btn-link btn-sm">Detail</a>
         <button type="submit" class="btn btn-secondary btn-sm">Delete</button>
       </div>
     </div>

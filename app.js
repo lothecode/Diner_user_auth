@@ -45,8 +45,8 @@ app.post('/diners', (req, res) => {
     name: req.body.name,
     name_en: req.body.name_en,
     category: req.body.category,
-    image: req.body.image,
     location: req.body.location,
+    image: req.body.image,
     phone: req.body.phone,
     google_map: req.body.google_map,
     rating: req.body.rating,
@@ -102,8 +102,17 @@ app.post('/diners/:id/delete', (req, res) => {
   })
 })
 
-//  search?
-
+//  search
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  Diner.find((err, diners) => {
+    if (err) return console.error(err)
+    const diner = diners.filter(diner => {
+      return diner.name.toLowerCase().includes(keyword.toLowerCase())
+    })
+    res.render('index', { diners: diner })
+  })
+})
 
 app.listen(port, () => {
   console.log('app is running')

@@ -2,7 +2,7 @@
 a favorite restaurant list for user to creat/read/update/delete items
 
 ##	Features
-####  User can add new restaurant data by click "Create new" button. Restaurant's name is mandatory input.
+####  User can add new restaurant data by click "Create new" button. Restaurant's name is mandatory input
 ####  User can see all favorite restaurants with brief information in database, incluers:
 - reataurant name
 - restaurant photo
@@ -12,10 +12,10 @@ a favorite restaurant list for user to creat/read/update/delete items
 - category of the restaurant
 - address and telephone no. of the restaurant
 - restaurant's photo and short description 
-####  User can update restaurant information by click "Edit" button.
-####  User can delete restaurant information by click "Delete" button.
-####  User can search reataurant by name in the search box on the above of home.
-
+####  User can update restaurant information by click "Edit" button
+####  User can delete restaurant information by click "Delete" button
+####  User can search restaurant by name in the search box on the above of home
+####  User can sort by restaurant name, category and rating through dropdown menu
 
 ##	Getting Started
 git clone or download https://github.com/lothecode/AC3_Diner_CRUD.git to your computer
@@ -25,7 +25,7 @@ git clone or download https://github.com/lothecode/AC3_Diner_CRUD.git to your co
 - open terminal to the folder of this project
 - install npm,and install Express.js, mongoose, body-parser, Express-Handlebars through npm
 
-#### Mongodb and Robo 3T is required excuting this project.
+#### Mongodb and Robo 3T is required excuting this project
 - Create new Database named DinerList via Robo 3T localhost
 - Create new Cpllection named diners via Robo 3T in DinerList database
 #### note:
@@ -39,5 +39,6 @@ git clone or download https://github.com/lothecode/AC3_Diner_CRUD.git to your co
 - Visual Studio Code v1.40.1
 - Express v4.17.1
 - Express-Handlebars v3.1.0
+- method-override v3.0.0
 - MongoDB Community Server v4.0.13
 - Mongoose v5.7.10

@@ -44,7 +44,7 @@
         <a href="/diners/{{this.id}}/edit" class="btn btn-light btn-link btn-sm">Edit</a>
         <a href="/diners/{{this.id}}" class="btn btn-light btn-link btn-sm">Detail</a>
 
-        <form action="/diners/{{{this.id}}}/delete" method="POST" style="display: inline;">
+        <form action="/diners/{{{this.id}}}/delete?_method=DELETE" method="POST" style="display: inline;">
           <button type="submit" class="btn btn-secondary btn-sm"
             onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>
         </form>

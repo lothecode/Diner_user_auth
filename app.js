@@ -4,11 +4,13 @@ const port = 3000
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
+app.use(methodOverride('_method'))
 
 mongoose.connect('mongodb://localhost/DinerList', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
@@ -74,13 +76,12 @@ app.get('/diners/:id/edit', (req, res) => {
   })
 })
 //  do edit one action
-app.post('/diners/:id/edit', (req, res) => {
+app.put('/diners/:id', (req, res) => {
   Diner.findById(req.params.id, (err, diner) => {
     if (err) return console.error(err)
     diner.name = req.body.name
     diner.name_en = req.body.name_en
     diner.category = req.body.category
-    diner.image = req.body.image
     diner.location = req.body.location
     diner.phone = req.body.phone
     diner.google_map = req.body.google_map
@@ -93,7 +94,7 @@ app.post('/diners/:id/edit', (req, res) => {
   })
 })
 //  do delete one action
-app.post('/diners/:id/delete', (req, res) => {
+app.delete('/diners/:id/delete', (req, res) => {
   Diner.findById(req.params.id, (err, diner) => {
     if (err) return console.error(err)
     diner.remove(err => {
@@ -103,7 +104,7 @@ app.post('/diners/:id/delete', (req, res) => {
   })
 })
 
-//  search
+// search
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword
   Diner.find((err, diners) => {

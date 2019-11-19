@@ -3,7 +3,7 @@ const router = express.Router()
 const Diner = require('../models/diner')
 
 // search
-router.get('/search', (req, res) => {
+router.get('/', (req, res) => {
   const keyword = req.query.keyword
   Diner.find((err, diners) => {
     if (err) return console.error(err)

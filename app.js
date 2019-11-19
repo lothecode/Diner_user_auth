@@ -13,7 +13,8 @@ app.use(express.static('public'))
 app.use(methodOverride('_method'))
 app.use('/diners', require('./routes/router'))
 app.use('/', require('./routes/home'))
-app.use('/search', require('./routes/search.js'))
+app.use('/search', require('./routes/search'))
+app.use('/diners/sort/', require('./routes/sort'))
 
 mongoose.connect('mongodb://localhost/DinerList', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection

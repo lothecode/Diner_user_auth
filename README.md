@@ -18,7 +18,7 @@ a favorite restaurant list for user to creat/read/update/delete items
 ####  User can sort by restaurant name, category and rating through dropdown menu
 
 ##	Getting Started
-git clone or download https://github.com/lothecode/AC3_Diner_CRUD.git to your computer
+git clone or download https://github.com/lothecode/AC3_Diner_CRUD-RESTful.git to your computer
 
 
 ###	Installing
